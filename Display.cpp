@@ -35,7 +35,7 @@ void sendFrame()
         display.print(linesZip.value2);
 
         String whitespaces;
-        for (uint8_t i = 0; i < linesZip.value2.length() - linesZip.value2.length(); i++)
+        for (uint8_t i = 0; i < linesZip.value2.length() - linesZip.value1.length(); i++)
             whitespaces += ' ';
 
         if (whitespaces.length())
