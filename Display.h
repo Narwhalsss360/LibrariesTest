@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 #include "SketchConstants.h"
-#include <StandardCollections.h>
+#include <LightCollection.h>
 
 extern Array<String, display_rows> lines;
 extern uint8_t displayBrightness;

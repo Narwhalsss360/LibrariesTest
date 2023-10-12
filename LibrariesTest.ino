@@ -52,3 +52,22 @@ void loop()
     lines[3] = fromRight("Loop Time", String((uint32_t)lastLoopTime), display_columns);
     lastLoopTime = uptime() - start;
 }
+
+DynamicArray<uint8_t> readAll(Stream& stream)
+{
+    DynamicArray<uint8_t> readBytes;
+    while (stream.available())
+    {
+        int read = stream.read();
+        if (read)
+            readBytes += read;
+    }
+    return readBytes;
+}
+
+void serialEvent()
+{
+    DynamicArray<uint8_t> bytes = readAll(Serial);
+    Serial.write(&bytes[0], bytes.Length());
+    Serial.println();
+}
