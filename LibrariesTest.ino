@@ -10,6 +10,12 @@ RGBLED led = RGBLED(pins.ledRed, pins.ledGreen, pins.ledBlue);
 HSV ledCol;
 
 TimedEvent ledColorChanger = TimedEvent(80, true);
+BitArray<10> bitArr;
+
+const byte rowPins[] = { 10, 11 };
+const byte columnPins[] = { 12, A0, A1 };
+
+auto matrix = createMatrix(rowPins, columnPins, 10);
 
 void rotaryPushed(PushedEventArgs&)
 {
