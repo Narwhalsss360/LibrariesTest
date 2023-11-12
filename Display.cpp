@@ -12,7 +12,6 @@ Array<String, display_rows> oldLines = Array<String, display_rows>();
 uint8_t oldDisplayBrightness = 0;
 uint8_t displayBrightness = 255;
 
-
 void customDisplayChar(uint8_t location, uint8_t map[])
 {
     display.createChar(location, map);

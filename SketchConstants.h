@@ -2,9 +2,11 @@
 #define SketchConstants_h
 
 #include <stdint.h>
+#include <TimeTypes.h>
+#include <TimeLiterals.h>
 
 constexpr uint8_t display_address = 0x27;
-constexpr uint8_t display_refresh_rate = 15;
+constexpr time_t::int_type display_refresh_rate = 15hz;
 constexpr uint8_t display_rows = 4;
 constexpr uint8_t display_columns = 20;
 
