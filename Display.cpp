@@ -2,12 +2,14 @@
 #include <NTimer.h>
 #include <LiquidCrystal_I2C.h>
 
+using stdcol::array;
+
 LiquidCrystal_I2C display = LiquidCrystal_I2C(display_address, display_columns, display_rows);
 
 TimedEvent displaySendEvent;
 
-Array<String, display_rows> lines = Array<String, display_rows>();
-Array<String, display_rows> oldLines = Array<String, display_rows>();
+array<String, display_rows> lines = array<String, display_rows>();
+array<String, display_rows> oldLines = array<String, display_rows>();
 
 uint8_t oldDisplayBrightness = 0;
 uint8_t displayBrightness = 255;
@@ -25,22 +27,22 @@ void sendFrame()
         display.setBacklight(displayBrightness);
     }
 
-    for (auto linesZip : Zip(oldLines, lines))
+    for (int i = 0; i < display_rows; i++)
     {
-        if (linesZip.value1 == linesZip.value2)
+        if (oldLines[i] == lines[i])
             continue;
         
-        display.setCursor(0, linesZip.index);
-        display.print(linesZip.value2);
+        display.setCursor(0, i);
+        display.print(lines[i]);
 
         String whitespaces;
-        for (uint8_t i = 0; i < linesZip.value2.length() - linesZip.value1.length(); i++)
+        for (uint8_t i = 0; i < lines[i].length() - oldLines[i].length(); i++)
             whitespaces += ' ';
 
         if (whitespaces.length())
             display.print(whitespaces);
 
-        linesZip.value1  = linesZip.value2;
+        oldLines[i] = lines[i];
     }
 }
 

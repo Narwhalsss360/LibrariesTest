@@ -6,7 +6,7 @@
 #include <TimeLiterals.h>
 
 constexpr uint8_t display_address = 0x27;
-constexpr time_t::int_type display_refresh_rate = 15hz;
+constexpr ntime_t::int_type display_refresh_rate = 15_hz;
 constexpr uint8_t display_rows = 4;
 constexpr uint8_t display_columns = 20;
 

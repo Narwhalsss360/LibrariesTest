@@ -3,9 +3,9 @@
 
 #include <Arduino.h>
 #include "SketchConstants.h"
-#include <LightCollection.h>
+#include <stdcol.h>
 
-extern Array<String, display_rows> lines;
+extern stdcol::array<String, display_rows> lines;
 extern uint8_t displayBrightness;
 
 void displaySetup();

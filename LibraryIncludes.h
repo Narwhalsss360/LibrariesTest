@@ -13,5 +13,7 @@
 #include <NTimer.h>
 #include <NStreamCom.h>
 #include <PinMatrix.h>
+#include <stdcol.h>
+#include <StreamUtilities.h>
 
 #endif
